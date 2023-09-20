@@ -1,0 +1,70 @@
+// sideBar css
+
+.sidebar {
+    width: 250px;
+    height: 100%; 
+    background-color: #333; 
+    color: #fff; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    transition: background-color 0.3s;
+
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 10px 20px; 
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: #555; 
+  }
+  
+  .sidebar a.active {
+    background-color: #007bff; 
+  }
+  
+  .sidebar a i {
+    margin-right: 10px;
+  }
+  
+  .sidebar a span {
+    font-weight: bold;
+  }
+  .main{
+    position: absolute;
+    
+    left: 250px;
+    width: calc(100% - 250px);
+   height: 100vh;
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+  }
+ 
+  //all URL
+  .allUrl{
+    background-color: #fdfefd;
+width: 500px;
+display: flex; 
+margin: 0 auto;
+padding: 20px;
+}
