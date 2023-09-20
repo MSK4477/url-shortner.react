@@ -7,10 +7,10 @@ const Redirect = () => {
  const [data, setData] = useState()
     const fetch = async() => {
 
-      const response = await axios.get(`http://localhost:3000/api/url/short/${urlId}`)
+      const response = await axios.get(` https://url-shortner-node.onrender.com/api/url/short/${urlId}`)
         setData(response.data.UrlData.origUrl)
     }
-console.log(data)
+// console.log(data)
     useEffect(() =>{
 fetch()
     // eslint-disable-next-line react-hooks/exhaustive-deps

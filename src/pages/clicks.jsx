@@ -9,12 +9,11 @@ const { shortId } = useParams()
 
   const fetch = async () => {
     const response = await axios.get(
-      `http://localhost:3000/api/url/short/${shortId}`
+      `https://url-shortner-node.onrender.com/api/url/short/${shortId}`
     );
     setData(response.data.UrlData.clicks) || null;
   };
-  console.log(data);
-  console.log(shortId)
+ 
   useEffect(() => {
     fetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps

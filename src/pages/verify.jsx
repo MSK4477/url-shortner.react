@@ -9,7 +9,7 @@ const token = searchParams.get('token');
 
 const fetchData = async () => {
     try{
-        const res = await axios.get(`http://localhost:3000/api/users/verify?token=${token}`);
+        const res = await axios.get(` https://url-shortner-node.onrender.com/api/users/verify?token=${token}`);
         if(res.status == 200){
         setIsVerified(true)
         }

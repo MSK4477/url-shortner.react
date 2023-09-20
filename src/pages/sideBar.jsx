@@ -15,7 +15,6 @@ const navigate = useNavigate()
       pathname !== "/forgotPassword"
     ) {
       setIsSidebarVisible(true);
-      console.log("hello world");
     } else {
       setIsSidebarVisible(false);
     }

@@ -6,10 +6,9 @@ const AllURL = () => {
   const [data, setData] = useState([]);
 
   const fetch = async () => {
-    const response = await axios.get(`http://localhost:3000/api/url/short`);
+    const response = await axios.get(`https://url-shortner-node.onrender.com/api/url/short`);
     setData(response.data.UrlData);
   };
-  console.log(data);
   useEffect(() => {
     fetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps

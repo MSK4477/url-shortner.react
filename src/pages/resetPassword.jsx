@@ -31,12 +31,11 @@ function ResetPassword() {
     }
 
     try {
-      const response = await axios.post(`http://localhost:3000/api/users/resetPassword/${id}?token=${token}`, {
+      const response = await axios.post(` https://url-shortner-node.onrender.com/api/users/resetPassword/${id}?token=${token}`, {
         password: newPassword,
       });
-      console.log(token)
-      console.log(id)
-      console.log("hell no")
+      // console.log(token)
+      // console.log(id)
 
       if (response.data.Status === "Success") {
         alert("password reseted successfully");

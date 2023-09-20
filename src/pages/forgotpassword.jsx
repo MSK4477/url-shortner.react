@@ -3,20 +3,29 @@ import axios from "axios"
 // import backEndUrl from "../config.js"
 function ForgotPassword() {
   const [email, setEmail] = useState('');
+  const [isSend, setIsSend] = useState("Send")
 const [mailSent, setMailSent] = useState(true);
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
   const handleSubmit = async(e) => {
+    if(isSend === "Send" || isSend === "Retry") {
+      setIsSend("Sending...")
+
+    }
     e.preventDefault();
-   const response = await axios.post('http://localhost:3000/api/users/forgotPassword', {email}) 
+   const response = await axios.post(' https://url-shortner-node.onrender.com/api/users/forgotPassword', {email}) 
   try{
+    
+
     if (response.data.message === 'Email sent successfully.') {
-      console.log(response.data);
+      // console.log(response.data);
       setMailSent(false);     
   }
   else if(response.data.code === 0) {
+    setIsSend("Retry")
+
     alert("The given email address is not found.");
     return;
   
@@ -44,7 +53,7 @@ console.error(err)
             required
           />
         <br /><br />
-        <button type="submit">send</button>
+        <button type="submit">{isSend}</button>
       </form>
     </div>) : ( <>  <h1>mail sent succesfully</h1></>)}
     </>

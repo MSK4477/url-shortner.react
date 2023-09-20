@@ -13,7 +13,7 @@ const SimpleUrlShortener = () => {
   const [data, setData] = useState();
   const fetch = async () => {
     const response = await axios.get(
-      `http://localhost:3000/api/url/short/${shortId}`
+      `https://url-shortner-node.onrender.com/api/url/short/${shortId}`
     );
     if (response.status == 200 && Short1) {
       setData(response.data.UrlData.origUrl);
@@ -44,7 +44,7 @@ const SimpleUrlShortener = () => {
       if (btnText == "Shorten URL") {
         setBtnText("Shortening...");
         const response = await axios.post(
-          "http://localhost:3000/api/url/short",
+          "https://url-shortner-node.onrender.com/api/url/short",
           {
             origUrl: originalUrl,
           }
@@ -68,8 +68,7 @@ const SimpleUrlShortener = () => {
       setBtnText("Shorten URL");
     }
   };
-  console.log(shortId);
-  console.log(data);
+
 
   const main = {
     position: "relative",
