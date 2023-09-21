@@ -1,6 +1,5 @@
 import  { useState } from 'react';
 import axios from "axios"
-// import backEndUrl from "../config.js"
 function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [isSend, setIsSend] = useState("Send")

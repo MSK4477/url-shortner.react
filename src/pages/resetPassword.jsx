@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import backEndUrl from "../config.js"
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");

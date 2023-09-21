@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Link} from 'react-router-dom';
 import axios from "axios"
-// import backEndUrl from "../config.js"
 
 const Register = () => {
 const initialStage = {
@@ -25,7 +24,7 @@ const initialStage = {
     e.preventDefault();
   
     try {
-      const res = await axios.post(" https://url-shortner-node.onrender.com/api/users/register", formData);
+      const res = await axios.post("  https://url-shortner-node.onrender.com/api/users/register", formData);
   
       if (res.status === 200) {
         alert("Succesfully Registered Check Your Email To verify Your Account")

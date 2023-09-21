@@ -70,35 +70,7 @@ const SimpleUrlShortener = () => {
   };
 
 
-  const main = {
-    position: "relative",
-    textAlign: "center",
-    top: "16%",
-    margin: "0px auto",
-    backgroundColor: "#ffffff",
-    color: "black",
-    borderStyle: "none",
-    width: "60%",
-    height: "30%",
-    background: "#ffffff",
-    borderRadius: "8px",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-  };
-
-  const ma = {
-    position: "relative",
-    textAlign: "center",
-    top: "16%",
-    margin: "0px auto",
-    backgroundColor: "#ffffff",
-    color: "black",
-    borderStyle: "none",
-    width: "40%",
-    height: "25%",
-    background: "#ffffff",
-    borderRadius: "8px",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-  };
+ 
 
   return (
     <div className="main">
@@ -115,7 +87,7 @@ const SimpleUrlShortener = () => {
         <b>{Short ? "Your shortened URL" : "Short URL"}</b>
       </div>
 
-      <form style={Short ? ma : main}>
+      <form className={Short ? "ma" : "ma2"}>
         <label
           htmlFor="url_shortner"
           style={{
@@ -155,34 +127,10 @@ const SimpleUrlShortener = () => {
         <br />
         <br />
         <button
-          style={
-            Short
-              ? {
-                  width: "28%",
-                  padding: "10px",
-                  fontSize: "15px",
-                  backgroundColor: "#2c87c5",
-                  border: "1px solid #2c87c5",
-                  borderStyle: "none",
-                  borderRadius: "3px",
-                  color: "#ffffff",
-                  cursor: "pointer",
-               
-                }
-              : {
-                  width: "28%",
-                  padding: "15px",
-                  fontSize: "15px",
-                  backgroundColor: "#2c87c5",
-                  border: "1px solid #2c87c5",
-                  borderStyle: "none",
-                  color: "#ffffff",
-                  cursor: "pointer",
-                  marginTop: "16px",
-                }
-          }
+        
           type="button"
           onClick={handleShortenUrl}
+          className={Short ? "btn2" : "btn"}
         >
           {btnText}
         </button>

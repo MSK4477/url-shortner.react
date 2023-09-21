@@ -1,0 +1,51 @@
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+  }
+  .main {
+    position: absolute;
+    height: 100vh;
+    left: 60px;
+    width: calc(100% - 26px);
+  }
+   .ma{
+    width: 10%;
+    position: relative;
+    text-align: center;
+    top: 16%;
+    margin: 0px auto;
+   }
+   .ma2{
+    width: 60%;
+    position: relative;
+    text-align: center;
+    top: 16%;
+    margin: 0px auto;
+   }
+  /* CSS */
+.btn {
+    width: 28%;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #2c87c5;
+    border: 1px solid #2c87c5;
+    border-style: none;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .btn2 {
+    width: 58%;
+    padding: 15px;
+    font-size: 15px;
+    background-color: #2c87c5;
+    border: 1px solid #2c87c5;
+    border-style: none;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  
+}
+

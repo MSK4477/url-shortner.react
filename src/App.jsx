@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PrivateRoute from './pages/protectedRoute';
 import './scss/App.scss';
 import './scss/login.scss';
+import "./scss/mediaQuery.scss";
 import Register from './pages/register';
 import Login from './pages/login';
 import Verify from './pages/verify';
