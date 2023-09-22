@@ -7,8 +7,10 @@ const Redirect = () => {
  const [data, setData] = useState()
     const fetch = async() => {
 
-      const response = await axios.get(` https://url-shortner-node.onrender.com/api/url/short/${urlId}`)
-        setData(response.data.UrlData.origUrl)
+      const response = await axios.get(`https://url-shortner-node.onrender.com/api/url/short/${urlId}`)
+      if(response.status == 200){
+setData(response.data.UrlData.origUrl)
+      }
     }
 // console.log(data)
     useEffect(() =>{

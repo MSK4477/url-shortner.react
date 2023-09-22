@@ -30,7 +30,7 @@ function App() {
             <Route path='/verify' element={<Verify />} />
             <Route path='/forgotPassword' element={<ForgotPassword />} />
             <Route path='/resetPassword/:id' element={<ResetPassword />} />
-            <Route path='/home' element={<PrivateRoute element={<SimpleUrlShortener />} />} />
+            <Route path='/home/' element={<PrivateRoute element={<SimpleUrlShortener />} />} />
             <Route path='/rd/:urlId' element={<PrivateRoute element={<Redirect />} />} />
              <Route path='/clicks/:shortId' element={<PrivateRoute element={<Clicks />} />} />
               <Route path='/all' element={ <PrivateRoute element={<AllURL />} />}  />
