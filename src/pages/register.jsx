@@ -22,9 +22,10 @@ const initialStage = {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    //http://localhost:3000/api/users/register
+  //https://url-shortner-node.onrender.com/
     try {
-      const res = await axios.post("  https://url-shortner-node.onrender.com/api/users/register", formData);
+      const res = await axios.post("https://url-shortner-node.onrender.com/api/users/register", formData);
   
       if (res.status === 200) {
         alert("Succesfully Registered Check Your Email To verify Your Account")

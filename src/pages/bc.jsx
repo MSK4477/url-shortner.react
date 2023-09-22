@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
+import axios from "axios";
 const SimpleUrlShortener = () => {
   const [originalUrl, setOriginalUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
@@ -11,47 +11,37 @@ const SimpleUrlShortener = () => {
 
   const [shortId, setShortId] = useState();
   const [data, setData] = useState();
-
   const fetch = async () => {
     const response = await axios.get(
       `https://url-shortner-node.onrender.com/api/url/short/${shortId}`
     );
-    if (response.status === 200 && Short1) {
+    if (response.status == 200 && Short1) {
       setData(response.data.UrlData.origUrl);
       setShort(true);
     }
     if (
-      response.data.code === 0 &&
-      response.status === 400 &&
-      response.data.message === "Invalid Original Url"
+      response.data.code == 0 &&
+      response.status == 400 &&
+      response.data.message == "Invalid Original Url"
     ) {
       alert("Invalid URL");
     }
   };
-
   console.log(data);
-
   useEffect(() => {
     fetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shortId]);
 
-  const handleChange = (e) => {
-    setOriginalUrl(e.target.value);
-  };
-
-  const handleShortenUrl = async (e) => {
-    e.preventDefault();
-
+  const handleShortenUrl = async () => {
     if (!originalUrl) {
       alert("Please enter a URL");
       return;
     }
-
     setShort1(true);
 
     try {
-      if (btnText === "Shorten URL") {
+      if (btnText == "Shorten URL") {
         setBtnText("Shortening...");
         const response = await axios.post(
           "http://localhost:3000/api/url/short",
@@ -59,20 +49,18 @@ const SimpleUrlShortener = () => {
             origUrl: originalUrl,
           }
         );
-
         setShortId(response.data.urlId);
         setShortenedUrl(response.data.shortUrl);
         setOriginalUrl(response.data.shortUrl);
         setBtnText("Copy URL");
       }
 
-      if (btnText === "Copy URL") {
+      if (btnText == "Copy URL") {
         await navigator.clipboard.writeText(shortenedUrl);
         setBtnText("URL Copied");
         return;
       }
-
-      if (btnText === "URL Copied") {
+      if (btnText == "URL Copied") {
         alert("URL already Copied");
       }
     } catch (error) {
@@ -80,6 +68,9 @@ const SimpleUrlShortener = () => {
       setBtnText("Shorten URL");
     }
   };
+
+
+ 
 
   return (
     <div className="main">
@@ -96,7 +87,7 @@ const SimpleUrlShortener = () => {
         <b>{Short ? "Your shortened URL" : "Short URL"}</b>
       </div>
 
-      <form className={Short ? "ma" : "ma2"} onSubmit={handleShortenUrl}>
+      <form className={Short ? "ma" : "ma2"}>
         <label
           htmlFor="url_shortner"
           style={{
@@ -106,7 +97,7 @@ const SimpleUrlShortener = () => {
             color: "black",
           }}
         >
-          <b>{Short ? "" : "Paste the URL to be shortened"}</b>
+          <b >{Short ? "" : "Paste the URL to be shortened"}</b>
         </label>
         <br></br>
         <br></br>
@@ -118,25 +109,26 @@ const SimpleUrlShortener = () => {
                   padding: "4px",
                   fontSize: "15px",
                   borderRadius: "1px solid",
-                  textAlign: "left",
+                  textAlign:"left"
                 }
               : {
                   width: "80%",
                   padding: "4px",
                   fontSize: "15px",
                   borderRadius: "1px solid",
-                  textAlign: "left",
+                  textAlign:"left"
                 }
           }
           type="text"
           placeholder="Enter URL"
           value={originalUrl}
-          onChange={handleChange}
+          onChange={(e) => setOriginalUrl(e.target.value)}
         />{" "}
         <br />
         <br />
         <button
-          type="submit"
+        
+          type="button"
           onClick={handleShortenUrl}
           className={Short ? "btn2" : "btn"}
         >
@@ -152,25 +144,28 @@ const SimpleUrlShortener = () => {
             }}
           ></div>
         )}
-        {shortenedUrl && (
-          <div>
-            <Link
-              style={{
-                display: "inline-block",
-                position: "relative",
-                left: "140px",
-                top: "7px",
-                textAlign: "left",
-              }}
-              to={`/clicks/${shortId}`}
-              target="_blank"
-            >
-              track the count of clicks
-            </Link>
-            <br />
-          </div>
-        )}
+          {shortenedUrl && (
+        <div>
+
+          <Link
+            style={{
+              display: "inline-block",
+              position: "relative",
+              left: "140px",
+              top: "7px",
+              textAlign: "left",
+            }}
+            to={`/clicks/${shortId}`}
+            target="_blank"
+          >
+            track the count of clicks
+          </Link>
+          <br />
+        </div>
+      )}
       </form>
+
+    
     </div>
   );
 };

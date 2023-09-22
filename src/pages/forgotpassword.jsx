@@ -14,7 +14,7 @@ const [mailSent, setMailSent] = useState(true);
 
     }
     e.preventDefault();
-   const response = await axios.post(' https://url-shortner-node.onrender.com/api/users/forgotPassword', {email}) 
+   const response = await axios.post('https://url-shortner-node.onrender.com/api/users/forgotPassword', {email}) 
   try{
     
 
