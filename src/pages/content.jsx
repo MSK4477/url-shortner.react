@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const SimpleUrlShortener = () => {
+// eslint-disable-next-line react/prop-types
+const SimpleUrlShortener = ({ toggleSidebar, isVisible }) => {
   const [originalUrl, setOriginalUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
   const [btnText, setBtnText] = useState("Shorten URL");
@@ -11,7 +12,8 @@ const SimpleUrlShortener = () => {
 
   const [shortId, setShortId] = useState();
   const [data, setData] = useState();
-
+  console.log(toggleSidebar);
+  console.log(isVisible);
   const fetch = async () => {
     const response = await axios.get(
       `https://url-shortner-node.onrender.com/api/url/short/${shortId}`
@@ -54,7 +56,7 @@ const SimpleUrlShortener = () => {
       if (btnText === "Shorten URL") {
         setBtnText("Shortening...");
         const response = await axios.post(
-          "http://localhost:3000/api/url/short",
+          "https://url-shortner-node.onrender.com/api/url/short",
           {
             origUrl: originalUrl,
           }
@@ -69,11 +71,10 @@ const SimpleUrlShortener = () => {
       if (btnText === "Copy URL") {
         await navigator.clipboard.writeText(shortenedUrl);
         setBtnText("URL Copied");
+        setTimeout(() => {
+          setBtnText("Copy URL");
+        }, 3000);
         return;
-      }
-
-      if (btnText === "URL Copied") {
-        alert("URL already Copied");
       }
     } catch (error) {
       console.error("Error while shortening URL:", error.message);
@@ -96,7 +97,7 @@ const SimpleUrlShortener = () => {
         <b>{Short ? "Your shortened URL" : "Short URL"}</b>
       </div>
 
-      <form className={Short ? "ma" : "ma2"} onSubmit={handleShortenUrl}>
+      <form className={Short ? "form" : "form2"} onSubmit={handleShortenUrl}>
         <label
           htmlFor="url_shortner"
           style={{
@@ -106,11 +107,14 @@ const SimpleUrlShortener = () => {
             color: "black",
           }}
         >
-          <b>{Short ? "" : "Paste the URL to be shortened"}</b>
+          <b className="urlText">
+            {Short ? "" : "Paste the URL to be shortened"}
+          </b>
         </label>
         <br></br>
         <br></br>
         <input
+          className="inputStyle"
           style={
             Short
               ? {
@@ -158,7 +162,6 @@ const SimpleUrlShortener = () => {
               style={{
                 display: "inline-block",
                 position: "relative",
-                left: "140px",
                 top: "7px",
                 textAlign: "left",
               }}
