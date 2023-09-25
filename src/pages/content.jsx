@@ -41,6 +41,15 @@ const SimpleUrlShortener = ({ toggleSidebar, isVisible }) => {
   const handleChange = (e) => {
     setOriginalUrl(e.target.value);
   };
+  const reset = () => {
+    setOriginalUrl("")
+    setBtnText("Shorten URL")
+    setShort(false)
+    setShortenedUrl("")
+    setShort1(false)
+    setShortId("")
+
+  }
 
   const handleShortenUrl = async (e) => {
     e.preventDefault();
@@ -171,6 +180,8 @@ const SimpleUrlShortener = ({ toggleSidebar, isVisible }) => {
               track the count of clicks
             </Link>
             <br />
+            <i  title="reset" onClick={reset} style={{position:"absolute", top:"0px", right:"0px", padding:"3px",cursor:"pointer", color:"#393939e0",  fontWeight:"bolder",  fontSize:"20px"}} className="fa fa-refresh" aria-hidden="true"></i>
+
           </div>
         )}
       </form>
