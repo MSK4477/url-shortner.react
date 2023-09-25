@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import PrivateRoute from "./pages/protectedRoute";
 import "./scss/App.scss";
@@ -32,12 +32,17 @@ function App() {
         <Route path="/verify" element={<Verify />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/resetPassword/:id" element={<ResetPassword />} />
+        <Route path="/*" element={<Navigate to="/login" />} />
         <Route
           path="/home"
           element={
-            <SimpleUrlShortener
-              toggleSidebar={toggleSidebar}
-              isVisible={sidebarVisible}
+            <PrivateRoute
+              element={
+                <SimpleUrlShortener
+                  toggleSidebar={toggleSidebar}
+                  isVisible={sidebarVisible}
+                />
+              }
             />
           }
         />

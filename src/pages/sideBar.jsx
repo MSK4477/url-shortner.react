@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,  } from "react";
+import {useSearchParams, useParams } from "react-router-dom"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
@@ -6,20 +7,27 @@ const Sidebar = ({toggleSidebar, isVisible}) => {
   const location = useLocation();
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 const navigate = useNavigate()
+const [searchParams] = useSearchParams();
+const token = searchParams.get("token");
+const { id } = useParams();
+
   useEffect(() => {
     const { pathname } = location;
 console.log(toggleSidebar)
 console.log(isVisible)
     if (
       pathname !== "/" &&
+      pathname !== "/*" &&
       pathname !== "/login" &&
-      pathname !== "/resetPassword" &&
-      pathname !== "/forgotPassword"
+      pathname !== `/resetPassword/${id}?token=${token}` &&
+      pathname !== "/forgotPassword" &&
+      pathname !== "/verify" 
     ) {
       setIsSidebarVisible(true);
     } else {
       setIsSidebarVisible(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const handleLogout = () => {
@@ -61,9 +69,7 @@ borderRadius: "4px",
 cursor: "pointer",
 marginRight: "30px",
 }}onClick={handleLogout}>Logout</button>
-<button onClick={toggleSidebar}>hell no</button>
 </nav>
-<button onClick={toggleSidebar}>xxx</button>
       
 
        </div>
