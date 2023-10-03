@@ -20,13 +20,14 @@ const { shortId } = useParams()
   }, [shortId]);
 
 return (
-    <>
-    <h1 style={{position:"relative", top:"140px", left:"105px"}}>Total Clicks</h1>
-    <div className="main" style={{background:"#ffffff",borderRadius:"5px",boxShadow:"0 4px 6px rgba(0, 0, 0, 0.1)",  height:"100px", width:"140px",position:"relative", left:"40rem", top:"10rem"}}>
-    <h1 style={{fontWeight:"bolder",  color:"black", textAlign:"center", position:"relative", top:"30px"}}>{data}</h1>
+    <div className="main">
+    
+    <h1 >Total Clicks</h1>
+    <div className="count-box"  style={{background:"#ffffff",borderRadius:"5px",boxShadow:"0 4px 6px rgba(0, 0, 0, 0.1)",  height:"100px", width:"140px", margin:"20px auto"}}>
+    <h1 style={{fontWeight:"bolder",  color:"black", textAlign:"center"}}>{data}</h1>
 
     </div>
-    </>
+    </div>
 )
 };
 export default Clicks

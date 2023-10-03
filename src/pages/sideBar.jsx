@@ -1,34 +1,32 @@
-import { useState, useEffect,  } from "react";
-import {useSearchParams, useParams } from "react-router-dom"
+// import { useState, useEffect,  } from "react";
+// import {useSearchParams, useParams } from "react-router-dom"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Sidebar = ({toggleSidebar, isVisible}) => {
   const location = useLocation();
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  // const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 const navigate = useNavigate()
-const [searchParams] = useSearchParams();
-const token = searchParams.get("token");
-const { id } = useParams();
 
-  useEffect(() => {
-    const { pathname } = location;
+
+//   useEffect(() => {
+//     const { pathname } = location;
 console.log(toggleSidebar)
-console.log(isVisible)
-    if (
-      pathname !== "/" &&
-      pathname !== "/*" &&
-      pathname !== "/login" &&
-      pathname !== `/resetPassword/${id}?token=${token}` &&
-      pathname !== "/forgotPassword" &&
-      pathname !== "/verify" 
-    ) {
-      setIsSidebarVisible(true);
-    } else {
-      setIsSidebarVisible(false);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location]);
+// console.log(isVisible)
+//   //   if (
+  //     pathname !== "/" &&
+  //     pathname !== "/*" &&
+  //     pathname !== "/login" &&
+  //     pathname !== `/resetPassword/${id}?token=${token}` &&
+  //     pathname !== "/forgotPassword" &&
+  //     pathname !== "/verify" 
+  //   ) {
+  //     setIsSidebarVisible(true);
+  //   } else {
+  //     setIsSidebarVisible(false);
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [location]);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -37,7 +35,7 @@ console.log(isVisible)
 
   return (
     <>
-      {isSidebarVisible && (
+      {/* {isSidebarVisible && ( */}
 
 <div>
 
@@ -74,7 +72,7 @@ marginRight: "30px",
 
        </div>
           
-      )}
+      {/* )} */}
               </>
 
   );

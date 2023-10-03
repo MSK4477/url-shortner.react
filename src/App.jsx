@@ -24,7 +24,13 @@ function App() {
   };
   return (
     <>
-      <Sidebar toggleSidebar={toggleSidebar} isVisible={sidebarVisible} />
+      {/* <Sidebar toggleSidebar={toggleSidebar}
+       isVisible={sidebarVisible} >
+   <URLDashboard
+                  toggleSidebar={toggleSidebar}
+                  isVisible={sidebarVisible}
+                />
+      </Sidebar> */}
 
       <Routes>
         <Route path="/" element={<Register />} />
@@ -38,10 +44,18 @@ function App() {
           element={
             <PrivateRoute
               element={
-                <SimpleUrlShortener
+                <>
+                 <Sidebar
                   toggleSidebar={toggleSidebar}
                   isVisible={sidebarVisible}
                 />
+                  
+                <SimpleUrlShortener
+                toggleSidebar={toggleSidebar}
+                isVisible={sidebarVisible}
+              />
+                </>
+               
               }
             />
           }
@@ -55,10 +69,16 @@ function App() {
           element={
             <PrivateRoute
               element={
-                <Clicks
+                <>
+                <Sidebar
                   toggleSidebar={toggleSidebar}
                   isVisible={sidebarVisible}
                 />
+                  <Clicks
+                    toggleSidebar={toggleSidebar}
+                    isVisible={sidebarVisible}
+                  />
+                </>
               }
             />
           }
@@ -68,10 +88,16 @@ function App() {
           element={
             <PrivateRoute
               element={
-                <AllURL
+                <>
+                <Sidebar
                   toggleSidebar={toggleSidebar}
                   isVisible={sidebarVisible}
                 />
+                  <AllURL
+                    toggleSidebar={toggleSidebar}
+                    isVisible={sidebarVisible}
+                  />
+                </>
               }
             />
           }
@@ -81,10 +107,16 @@ function App() {
           element={
             <PrivateRoute
               element={
-                <URLDashboard
+                <>
+                <Sidebar
                   toggleSidebar={toggleSidebar}
                   isVisible={sidebarVisible}
                 />
+                  <URLDashboard
+                    toggleSidebar={toggleSidebar}
+                    isVisible={sidebarVisible}
+                  />
+                </>
               }
             />
           }
