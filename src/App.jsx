@@ -24,13 +24,7 @@ function App() {
   };
   return (
     <>
-      {/* <Sidebar toggleSidebar={toggleSidebar}
-       isVisible={sidebarVisible} >
-   <URLDashboard
-                  toggleSidebar={toggleSidebar}
-                  isVisible={sidebarVisible}
-                />
-      </Sidebar> */}
+    
 
       <Routes>
         <Route path="/" element={<Register />} />

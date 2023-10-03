@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useParams, useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Sidebar from "./sideBar";
 
-function ResetPassword() {
-  const location = useLocation();
-  const { pathname } = location;
+const ResetPassword = () => {
+  
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -51,7 +49,6 @@ function ResetPassword() {
 
   return (
     <div>
-            {pathname !== `/resetPassword/${id}?token=${token}` && <Sidebar />}
 
       <h1>Reset Password</h1>
       <form onSubmit={handleSubmit}>
