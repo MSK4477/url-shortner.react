@@ -1,14 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Sidebar = ({toggleSidebar, isVisible}) => {
+const Sidebar = () => {
   const location = useLocation();
 const navigate = useNavigate()
-
-
-
-console.log(toggleSidebar)
-
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -21,7 +16,7 @@ console.log(toggleSidebar)
 
 <div>
 
-        <nav  className={   isVisible ? "side":"sidebar" }>
+        <nav  className="sidebar">
 
 <ul>
   <li>
@@ -54,7 +49,6 @@ marginRight: "30px",
 
        </div>
           
-      {/* )} */}
               </>
 
   );

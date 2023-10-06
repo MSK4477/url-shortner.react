@@ -29,9 +29,9 @@ fetchData()
     return(
         <>
 {isVerified ?
-      ( <h1> Account Verified Please <Link to={"/login"}>Login</Link></h1>)  :
+      ( <h1 style={{color:"black"}}> Account Verified Please <Link to={"/login"}>Login</Link></h1>)  :
        
-      ( <h1>not verified</h1>)}
+      ( <h1 style={{color:"black"}}>not verified</h1>)}
        
        </>
     )

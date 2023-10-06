@@ -40,7 +40,7 @@ console.error(err)
     <>
 {mailSent ?
     (<div>
-      <h1>Forgot Password</h1>
+      <h1 style={{color:"black"}}>Forgot Password</h1>
       <form onSubmit={handleSubmit}>
         <b><label>
           Enter  Your Email to Send Link</label></b><br />

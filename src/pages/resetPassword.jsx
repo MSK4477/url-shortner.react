@@ -50,7 +50,7 @@ const ResetPassword = () => {
   return (
     <div>
 
-      <h1>Reset Password</h1>
+      <h1 style={{color:"black"}}>Reset Password</h1>
       <form onSubmit={handleSubmit}>
         <label>New Password:</label>
         <input

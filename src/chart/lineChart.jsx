@@ -4,7 +4,7 @@ import axios from "axios";
 import { Line } from "react-chartjs-2";
 import { useState, useEffect } from "react";
 const LineChart = () => {
-  const [details, setDetails] = useState([null]);
+  const [details, setDetails] = useState([]);
   const [dates, setDates] = useState([]); // State to hold the dates
 
   const fetch = async () => {
@@ -17,7 +17,7 @@ const LineChart = () => {
       // Extract clicks and dates from the response
       const clicksData = data.map((item) => item.clicks);
       const datesData = data.map((item) =>
-      new Date(item.date).toLocaleString() // Format the date
+      new Date(item.date).toLocaleDateString() // Format the date
     );
       setDetails(clicksData);
       setDates(datesData);
@@ -25,21 +25,30 @@ const LineChart = () => {
       console.error("Error fetching data:", error);
     }
   };
+  let sum = 0;
 
   useEffect(() => {
-    fetch();
-  }, []);
+      try {
+        fetch()
+        const calculatedSum = details.reduce((acc, item) => acc + item, 0);
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+        sum = calculatedSum;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }, []);
+  
+
 
   // Calculate the sum of clicks
-  let sum = details.reduce((acc, item) => acc + item);
 
   const data = {
     labels: dates, // Use the dates as labels
     datasets: [
       {
         label: "URL Creation Statistics",
-        backgroundColor: "black",
-        borderColor: "yellow",
+        backgroundColor: "red",
+        borderColor: "black",
         data: [sum, 10, 5, 2, 20, 30, 45],
       },
     ],

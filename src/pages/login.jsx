@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Loign</h1>
+      <h1 style={{color:"black"}}>Loign</h1>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -80,6 +80,10 @@ const Login = () => {
             required
           />
         </div>
+        <br />
+        <br />
+       <span>didn`t have an account<Link to={"/"}> Register</Link></span> 
+        <br />
         <br />
         <Link to={"/forgotPassword"}>forgotPassword</Link>
         <br />

@@ -16,7 +16,7 @@ const AllURL = () => {
 
   return (
     <div className="main">
-    <h1  style={{textAlign:"center"}} >All Created URLs</h1>
+    <h1  style={{textAlign:"center", color:"black"}} >All Created URLs</h1>
     {data.map(({ shortUrl }, index) => (
       <div key={index} className="allUrl">
         <ul  style={{textAlign:"center", listStyle:"none"}}>

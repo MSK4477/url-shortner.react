@@ -22,7 +22,7 @@ const { shortId } = useParams()
 return (
     <div className="main">
     
-    <h1 >Total Clicks</h1>
+    <h1 style={{color:"black"}}>Total Clicks</h1>
     <div className="count-box"  style={{background:"#ffffff",borderRadius:"5px",boxShadow:"0 4px 6px rgba(0, 0, 0, 0.1)",  height:"100px", width:"140px", margin:"20px auto"}}>
     <h1 style={{fontWeight:"bolder",  color:"black", textAlign:"center"}}>{data}</h1>
 

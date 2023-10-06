@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
-const SimpleUrlShortener = ({ toggleSidebar, isVisible }) => {
+const SimpleUrlShortener = () => {
   const [originalUrl, setOriginalUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
   const [btnText, setBtnText] = useState("Shorten URL");
@@ -12,8 +12,7 @@ const SimpleUrlShortener = ({ toggleSidebar, isVisible }) => {
 
   const [shortId, setShortId] = useState();
   const [data, setData] = useState();
-  console.log(toggleSidebar);
-  console.log(isVisible);
+
   const fetch = async () => {
     const response = await axios.get(
       `https://url-shortner-node.onrender.com/api/url/short/${shortId}`
@@ -103,7 +102,7 @@ const SimpleUrlShortener = ({ toggleSidebar, isVisible }) => {
         }}
         className="homeText"
       >
-        <b>{Short ? "Your shortened URL" : "Short URL"}</b>
+        <b style={{color:"black"}}>{Short ? "Your shortened URL" : "Short URL"}</b>
       </div>
 
       <form className={Short ? "form" : "form2"} onSubmit={handleShortenUrl}>

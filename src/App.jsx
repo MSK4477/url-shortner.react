@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
 import PrivateRoute from "./pages/protectedRoute";
 import "./scss/App.scss";
 import "./scss/login.scss";
@@ -17,15 +16,8 @@ import ResetPassword from "./pages/resetPassword.jsx";
 import SimpleUrlShortener from "./pages/content";
 
 function App() {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarVisible(!sidebarVisible);
-  };
   return (
     <>
-    
-
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -39,17 +31,10 @@ function App() {
             <PrivateRoute
               element={
                 <>
-                 <Sidebar
-                  toggleSidebar={toggleSidebar}
-                  isVisible={sidebarVisible}
-                />
-                  
-                <SimpleUrlShortener
-                toggleSidebar={toggleSidebar}
-                isVisible={sidebarVisible}
-              />
+                  <Sidebar />
+
+                  <SimpleUrlShortener />
                 </>
-               
               }
             />
           }
@@ -64,14 +49,8 @@ function App() {
             <PrivateRoute
               element={
                 <>
-                <Sidebar
-                  toggleSidebar={toggleSidebar}
-                  isVisible={sidebarVisible}
-                />
-                  <Clicks
-                    toggleSidebar={toggleSidebar}
-                    isVisible={sidebarVisible}
-                  />
+                  <Sidebar />
+                  <Clicks />
                 </>
               }
             />
@@ -83,14 +62,8 @@ function App() {
             <PrivateRoute
               element={
                 <>
-                <Sidebar
-                  toggleSidebar={toggleSidebar}
-                  isVisible={sidebarVisible}
-                />
-                  <AllURL
-                    toggleSidebar={toggleSidebar}
-                    isVisible={sidebarVisible}
-                  />
+                  <Sidebar />
+                  <AllURL />
                 </>
               }
             />
@@ -102,14 +75,8 @@ function App() {
             <PrivateRoute
               element={
                 <>
-                <Sidebar
-                  toggleSidebar={toggleSidebar}
-                  isVisible={sidebarVisible}
-                />
-                  <URLDashboard
-                    toggleSidebar={toggleSidebar}
-                    isVisible={sidebarVisible}
-                  />
+                  <Sidebar />
+                  <URLDashboard />
                 </>
               }
             />

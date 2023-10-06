@@ -47,7 +47,7 @@ const initialStage = {
    { registred ?
    
    (<div>
-      <h1>Register</h1>
+      <h1 style={{color:"black"}}>Register</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name</label>
