@@ -24,9 +24,8 @@ const Login = () => {
     e.preventDefault();
   
     try {
-      const res = await axios.post("https://url-shortner-node.onrender.com/api/users/login", formData, {
-        withCredentials: true, // Include cookies in the request
-      });
+      const res = await axios.post("https://url-shortner-node.onrender.com/api/users/login", formData)
+      
       if (res.data.message == "User has been signed-in successfully.") {
         alert("User Logged in successfully");
         navigate("/home");
