@@ -54,7 +54,7 @@ console.error(err)
         <br /><br />
         <button type="submit">{isSend}</button>
       </form>
-    </div>) : ( <>  <h1>mail sent succesfully</h1></>)}
+    </div>) : ( <>  <h1 style={{color:"black"}}>mail sent succesfully</h1></>)}
     </>
      );
 }
