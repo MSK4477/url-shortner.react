@@ -141,7 +141,7 @@ const SimpleUrlShortener = () => {
                 }
           }
           type="text"
-          placeholder="Enter URL"
+          placeholder="Enter Valid URL Only Not Works For Invalid URL"
           value={originalUrl}
           onChange={handleChange}
         />{" "}
