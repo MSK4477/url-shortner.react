@@ -99,7 +99,7 @@ const initialStage = {
         <p>Already have an account <Link to={"/login"}>login</Link> </p>
         <button type="submit">Register</button>
       </form>
-    </div>) : (<h1>check your email</h1>)
+    </div>) : (<h1 style={{color:"black"}}>check your email</h1>)
 
    }
    </>
